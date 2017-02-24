@@ -60,4 +60,13 @@ Variable and string - `varnme + 'stringText'`
 #### Add Layer to Map
 `arcpy.mapping.AddLayer(df, layerVar, add_position)`
 
-*The `add_position` can be set as `"BOTTOM"`, `"TOP"`, and `"AUTO_ARRANGE"`.*
+*This assumes that the layer reference has already been stored in a variable, as the week-04 files demonstrate. The `add_position` can be set as `"BOTTOM"`, `"TOP"`, and `"AUTO_ARRANGE"`.*
+
+#### Change Layer Name
+`lyr.name == "layer name"`
+
+#### Query Layer
+`lyr.definitionQuery = "attribute = val"`
+
+*See ArGIS's [help site](http://desktop.arcgis.com/en/arcmap/10.3/map/working-with-layers/building-a-query-expression.htm#GUID-C05F4A2C-0CE4-4629-A36C-EBCB22E1B7C9) for details on constructions query expressions.*
+
