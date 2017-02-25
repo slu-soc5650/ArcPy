@@ -84,7 +84,7 @@ for lyr in arcpy.mapping.ListLayers(mxd, '', df):
 ### Export Map Document to PDF
 `arcpy.mapping.ExportToPDF(mxd, "output.pdf", resolution=val)`
 
-*The `resolution=val` parameter is optional. The default export resolution if not specified is 300dpi.*
+*The `resolution=val` parameter is optional. If specified, val should be an integer such as 500. The default export resolution if not specified is 300dpi.*
 
 ### Clean-up Environment
 `del mxd`
