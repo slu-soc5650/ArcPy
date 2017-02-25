@@ -31,42 +31,60 @@ Variable and string - `varnme + 'stringText'`
 
 ---
 
-### `ArcPy`
-#### Set Map Document
+## `ArcPy`
+### Set Map Document
 `mxd = arcpy.mapping.MapDocument(filePath)`
 
 *The `mxd` variable could be any name, but the norm within the `ArcPy` community is to use `mxd`. We'll follow this norm this semester. Many of the functions for `ArcPy` require this variable.*
 
-#### Set Data Frame
+### Set Data Frame
 `df = arcpy.mapping.ListDataFrames(mxd, "dataFrame")[0]`
 
 *The `df` variable could be any name, but the norm within the `ArcPy` community is to use `df`. We'll follow this norm this semester. Many of the functions for `ArcPy` require this variable.*
 
-#### Access All Layers in Table of Contents
+### Access All Layers in Table of Contents
 `for lyr in arcpy.mapping.ListLayers(mxd, '', df):`
 
 *This creates an array that stores all of the layer names in a specified data frame in the array `lyr`.*
 
-#### Remove Layer
+### Remove Layer
 `arcpy.mapping.RemoveLayer(df, lyr)`
 
 *When `lyr` is an array and not a single layer name, this will remove all layers in the array.*
 
-#### Identify Layer
+### Identify Layer
 `layerVar = arcpy.mapping.Layer(filePath)`
 
 *This function should be executed before adding a layer to the map.*
 
-#### Add Layer to Map
+### Add Layer to Map
 `arcpy.mapping.AddLayer(df, layerVar, add_position)`
 
 *This assumes that the layer reference has already been stored in a variable, as the week-04 files demonstrate. The `add_position` can be set as `"BOTTOM"`, `"TOP"`, and `"AUTO_ARRANGE"`.*
 
-#### Change Layer Name
+### Apply Changes to Layer
+```python
+for lyr in arcpy.mapping.ListLayers(mxd, '', df):
+    if lyr.name == "layer name":
+    
+      # add layer specific commands here
+```
+
+### Change Layer Name
 `lyr.name == "layer name"`
 
-#### Query Layer
+### Query Layer
 `lyr.definitionQuery = "attribute = val"`
 
 *See ArGIS's [help site](http://desktop.arcgis.com/en/arcmap/10.3/map/working-with-layers/building-a-query-expression.htm#GUID-C05F4A2C-0CE4-4629-A36C-EBCB22E1B7C9) for details on constructions query expressions.*
 
+### Save Map Document
+`mxd.save()`
+
+### Export Map Document to PDF
+`arcpy.mapping.ExportToPDF(mxd, "output.pdf", resolution=val)`
+
+*The `resolution=val` parameter is optional. The default export resolution if not specified is 300dpi.*
+
+### Clean-up Environment
+`del mxd`
