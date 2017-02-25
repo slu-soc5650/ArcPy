@@ -4,26 +4,26 @@
 
 ---
 
-### Basic Python
-#### Import modules
+## Basic Python
+### Import modules
 `import moduleName`
 
 `import os`
 
-#### Change Working Directory
+### Change Working Directory
 `os.chdir(filePath)`
 
-#### Get Drive Letter (Windows only)
+### Get Drive Letter (Windows only)
 `os.path.abspath(os.sep)`
 
-#### Assign Value to Variable
+### Assign Value to Variable
 `varname = numValue`
 
 `varname = "strValue"`
 
 *Variables are used to store individual values in Python, for example `x = 2`.*
 
-#### Concatenate Strings
+### Concatenate Strings
 
 Two variables - `varname1 + varname2`
 
